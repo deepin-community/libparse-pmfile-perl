@@ -1,15 +1,26 @@
-Source: template-repository
-Section: unknown
+Source: libparse-pmfile-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Indep: libextutils-makemaker-cpanfile-perl,
+                     perl
+Standards-Version: 4.7.0
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libparse-pmfile-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libparse-pmfile-perl.git
+Homepage: https://metacpan.org/release/Parse-PMFile
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libparse-pmfile-perl
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         ${perl:Depends}
+Description: module to parse .pm file as PAUSE does
+ Most of the code of this module is taken from the PAUSE code as of April 2013
+ almost verbatim. Thus, the heart of Parse::PMFile should be quite stable.
+ .
+ Parse::PMFile doesn't provide features to extract a distribution or parse
+ meta files intentionally.

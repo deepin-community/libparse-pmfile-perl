@@ -1,0 +1,67 @@
+Description: Adjust tests to autopkgtest
+ During autopkgtest, look for the installed modules
+ and not the one in the build tree.
+ Decide by looking for $ENV{AUTOPKGTEST_TMP}.
+Origin: vendor
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2015-05-11
+
+--- a/t/10_self_check.t
++++ b/t/10_self_check.t
+@@ -3,12 +3,14 @@
+ use Test::More tests => 2;
+ use FindBin;
+ use Parse::PMFile;
++use Config;
+ 
+ for (0..1) {
+   no warnings 'once';
+   local $Parse::PMFile::FORK = $_;
+   my $p = Parse::PMFile->new;
+-  my $pkg = $p->parse("$FindBin::Bin/../lib/Parse/PMFile.pm");
++  my $dir = $ENV{AUTOPKGTEST_TMP} ? $Config{vendorlib} : "$FindBin::Bin/../lib";
++  my $pkg = $p->parse("$dir/Parse/PMFile.pm");
+ 
+   is $pkg->{'Parse::PMFile'}{version} => $Parse::PMFile::VERSION, "version of Parse::PMFile matches \$Parse::PMFile::VERSION";
+ }
+--- a/t/80_version_overload.t
++++ b/t/80_version_overload.t
+@@ -3,6 +3,7 @@
+ use Test::More;
+ use FindBin;
+ use Parse::PMFile;
++use Config;
+ 
+ for my $fork (0..1) {
+   test_version($fork);
+@@ -10,7 +11,8 @@
+   no warnings 'once';
+   local $Parse::PMFile::FORK = $_;
+   my $p = Parse::PMFile->new;
+-  my $pkg = $p->parse("$FindBin::Bin/../lib/Parse/PMFile.pm");
++  my $dir = $ENV{AUTOPKGTEST_TMP} ? $Config{vendorlib} : "$FindBin::Bin/../lib";
++  my $pkg = $p->parse("$dir/Parse/PMFile.pm");
+ 
+   is $pkg->{'Parse::PMFile'}{version} => $Parse::PMFile::VERSION, "version of Parse::PMFile matches \$Parse::PMFile::VERSION";
+ 
+--- a/t/81_version_overload_with_explicit_vpp.t
++++ b/t/81_version_overload_with_explicit_vpp.t
+@@ -3,6 +3,7 @@
+ use Test::More;
+ use FindBin;
+ use Parse::PMFile;
++use Config;
+ 
+ eval "use version::vpp; 1" or plan skip_all => "requires version::vpp";
+ 
+@@ -12,7 +13,8 @@
+   no warnings 'once';
+   local $Parse::PMFile::FORK = $_;
+   my $p = Parse::PMFile->new;
+-  my $pkg = $p->parse("$FindBin::Bin/../lib/Parse/PMFile.pm");
++  my $dir = $ENV{AUTOPKGTEST_TMP} ? $Config{vendorlib} : "$FindBin::Bin/../lib";
++  my $pkg = $p->parse("$dir/Parse/PMFile.pm");
+ 
+   is $pkg->{'Parse::PMFile'}{version} => $Parse::PMFile::VERSION, "version of Parse::PMFile matches \$Parse::PMFile::VERSION";
+ 

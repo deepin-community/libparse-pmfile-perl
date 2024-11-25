@@ -1,5 +1,148 @@
-template-repository (1.0-1) unstable; urgency=medium
+libparse-pmfile-perl (0.47-1) unstable; urgency=medium
 
-  * Initial release
+  * Import upstream version 0.47.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- gregor herrmann <gregoa@debian.org>  Thu, 09 May 2024 01:04:12 +0200
+
+libparse-pmfile-perl (0.46-1) unstable; urgency=medium
+
+  * Import upstream version 0.46.
+  * Declare compliance with Debian Policy 4.7.0.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 19 Apr 2024 16:46:10 +0200
+
+libparse-pmfile-perl (0.45-1) unstable; urgency=medium
+
+  * Import upstream version 0.45.
+  * Update years of packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 27 Jan 2024 03:00:56 +0100
+
+libparse-pmfile-perl (0.44-1) unstable; urgency=medium
+
+  * Import upstream version 0.44.
+  * Update years of packaging copyright.
+  * Declare compliance with Debian Policy 4.6.2.
+  * Remove Bug-Report from debian/upstream/metadata.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 27 Jun 2023 17:41:04 +0200
+
+libparse-pmfile-perl (0.43-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + libparse-pmfile-perl: Add Multi-Arch: foreign.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Sat, 22 Oct 2022 10:33:36 +0100
+
+libparse-pmfile-perl (0.43-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+  [ gregor herrmann ]
+  * Import upstream version 0.43.
+  * Update years of packaging copyright.
+  * Declare compliance with Debian Policy 4.5.1.
+  * Bump debhelper-compat to 13.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 13 Dec 2020 02:36:27 +0100
+
+libparse-pmfile-perl (0.42-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ gregor herrmann ]
+  * debian/*: replace ADTTMP with AUTOPKGTEST_TMP.
+
+  [ Nick Morrott ]
+  * New upstream version 0.42
+  * d/compat:
+    - Drop file
+  * d/control:
+    - Declare compliance with Debian Policy 4.4.1 (no changes)
+    - Bump debhelper compatibility level to 12
+    - Add Rules-Requires-Root field
+  * d/copyright:
+    - Refresh Debian Files stanza
+  * d/watch:
+    - Migrate to version 4 of the watch file format
+
+ -- Nick Morrott <nickm@debian.org>  Tue, 12 Nov 2019 11:28:14 +0000
+
+libparse-pmfile-perl (0.41-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+
+  [ Nick Morrott ]
+  * Import upstream version 0.41
+  * Refresh (build)-dependencies (cme fix)
+  * Bump Standards-Version to 3.9.8 (no changes)
+  * Update debian/upstream/metadata
+
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Mon, 21 Nov 2016 03:12:08 +0000
+
+libparse-pmfile-perl (0.40-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+
+  [ Lucas Kanashiro ]
+  * Import upstream version 0.40
+  * Declare compliance with Debian policy 3.9.7
+
+ -- Lucas Kanashiro <kanashiro.duarte@gmail.com>  Sun, 21 Feb 2016 17:00:11 -0300
+
+libparse-pmfile-perl (0.39-1) unstable; urgency=medium
+
+  * Team upload.
+  * Import upstream version 0.39
+  * Set email of upstream copyright in d/copyright
+  * Update debian/* copyright
+  * bump debhelper compatibility level to 9
+
+ -- Lucas Kanashiro <kanashiro.duarte@gmail.com>  Mon, 11 Jan 2016 23:23:27 -0200
+
+libparse-pmfile-perl (0.36-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Peter Pentchev ]
+  * Import upstream version 0.36.
+
+  [ gregor herrmann ]
+  * Update autopkgtest.patch.
+    Adapt new test t/81_version_overload_with_explicit_vpp.t for being
+    run against the installed package as well.
+
+ -- Peter Pentchev <roam@ringlet.net>  Mon, 11 May 2015 17:05:03 +0300
+
+libparse-pmfile-perl (0.29-1) unstable; urgency=medium
+
+  * Import upstream version 0.29
+  * Mark package as autopkgtest-able.
+    Set Testsuite header, and add a patch to make the tests look in the system
+    path instead of the build directory, when run under autopkgtest.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 14 Oct 2014 20:58:28 +0200
+
+libparse-pmfile-perl (0.28-1) unstable; urgency=medium
+
+  * Imported upstream version 0.28
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 08 Oct 2014 20:53:40 +0200
+
+libparse-pmfile-perl (0.26-1) unstable; urgency=low
+
+  * Initial release (closes: #763045).
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 27 Sep 2014 15:43:19 +0200
